@@ -1,15 +1,19 @@
-FROM python:3.5
+FROM ubuntu:18.04
 
-WORKDIR analysis
+WORKDIR /app/analysis
 
-RUN pip install --upgrade pip && pip3 install jupyterhub && pip3 install --upgrade notebook
-ADD jupyterhub_config.py /analysis/jupyterhub_config.py
+RUN apt-get upgrade -y && apt-get update -y && apt-get install -y python3-pip && pip3 install --upgrade pip
+RUN apt-get install npm nodejs -y && \
+    npm install -g configurable-http-proxy && \
+    pip3 install jupyterhub && \
+    pip3 install --upgrade notebook && \
+    pip3 install pandas scipy matplotlib && \
+    pip3 install "dask[distributed,dataframe]" && \    
+    useradd admin && echo admin:change.it! | chpasswd && mkdir /home/admin && chown admin:admin /home/admin
 
-RUN apt-get update -y && apt-get install npm nodejs-legacy -y
-RUN npm install -g configurable-http-proxy
+ADD jupyterhub_config.py /app/analysis/jupyterhub_config.py
+ADD create-user.py /app/analysis/create-user.py
 
-RUN useradd admin && echo admin:change.it! | chpasswd && mkdir /home/admin && chown admin:admin /home/admin
+CMD ["jupyterhub", "--ip=0.0.0.0", "--port=8000", "--no-ssl"]
 
-CMD ["jupyterhub", "--ip=0.0.0.0", "--port=8888", "--no-ssl"]
-
-EXPOSE 8888
+EXPOSE 8000
