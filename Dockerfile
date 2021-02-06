@@ -8,7 +8,8 @@ RUN apt-get install npm nodejs -y && \
     pip3 install jupyterhub && \
     pip3 install --upgrade notebook && \
     pip3 install pandas scipy matplotlib && \
-    pip3 install "dask[distributed,dataframe]" && \    
+    pip3 install "dask[distributed,dataframe]" && \   
+    pip3 install dask_labextension && \
     useradd admin && echo admin:change.it! | chpasswd && mkdir /home/admin && chown admin:admin /home/admin
 
 ADD jupyterhub_config.py /app/analysis/jupyterhub_config.py

@@ -1,29 +1,32 @@
-Jupyterhub Docker
-=================
+# JupyterHub Docker
 
-Allows create containers with Jupyterhub with numpy, pandas, scipy, matplotlib for multiusers throught a central server.
+JupyterHub allows using the power of notebooks to groups of users. With JupyterHub Docker you will create containers with JupyterHub with NumPy, pandas, Scipy, matplotlib, and Dask for multi-users through a central server.
 
-This image create jupyterhub containers with PAMAuthenticator, this allows us use the linux account and credentials.
+JupyterHub Docker will provide us an environment with JupyterLab for every user.
 
-Create Container
-----------------
+## Create Container
 
-     $ docker pull rancavil/jupyterhub:0.8.1
-     $ docker run -d --name jpy-server-1 -p 8000:8000 rancavil/jupyterhub:0.8.1
+     $ docker pull rancavil/jupyterhub-docker
+     $ docker run -d --name <your-container-name> -p 8000:8000 rancavil/jupyterhub-docker
+
+Or
+     $ git clone https://gitlab.com/rancavil/jupyterhub-docker.git
+     $ cd jupyterhub-docker/
+     $ docker build -t jupyter-docker .
+     $ docker run -d --name <your-container-name> -p 8000:8000 rancavil/jupyterhub-docker
 
 In your browser go to:
 
-     http://localhost:8000
+     http://<server-name-or-ip>:8000
 
-Access to Jupyterhub admin
---------------------------
+## Access to JupyterHub admin
 
-To create the container an admin account (named admin) its created with default password **change.it!**
+By default, an admin user is created with with default password **change.it!**, you can access using the following credentials to enter as administrator.
 
      username: admin
      password: change.it!
 
-You must change this password through **Terminal** option (New -> Terminal) using the command:
+**Important:** You must change the default password using the **Terminal** option (go to New -> Terminal) and use the following command inside the terminal:
 
     $ passwd
     Changing password for admin.
@@ -33,16 +36,17 @@ You must change this password through **Terminal** option (New -> Terminal) usin
     passwd: password updated successfully
     $
 
-Don't forget make this!!!
+Don't forget!!! this is **necessary**.
 
-With **admin** account you can create others users.
+## Creating new users
 
-Got to **Control Panel** button, **Admin** menu option, **Add Users** button.
+JupyterHub Docker uses PAMAuthenticator, this allows us to use the Linux account and credentials.
 
-Each new user will be created with default password **remember.change.it**. Each user must change its password through **Terminal**
-option once he begins first session.
+With **admin** account you can create other users.
 
-You must change this password through **Terminal** option (New -> Terminal) using the command:
+Go to **Control Panel** button, **Admin** menu option, **Add Users** button. Inside Add Users enter the username. Yo can create a list of user separated by lines
+
+New users will be created with a default password **remember.change.it**. Each user must change their own password using the **Terminal** option (they have to go to New -> Terminal) and execute the following command:
 
     $ passwd
     Changing password for admin.
@@ -52,4 +56,3 @@ You must change this password through **Terminal** option (New -> Terminal) usin
     passwd: password updated successfully
     $
 
-Each user must be responsible of its account.
