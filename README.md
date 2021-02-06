@@ -27,7 +27,7 @@ By default, an admin user is created with with default password **change.it!**, 
      username: admin
      password: change.it!
 
-**Important:** You must change the default password using the **Terminal** option (go to New -> Terminal) and use the following command inside the terminal:
+**Important:** You must change the default password using the **Terminal** option (go to **File -> New -> Terminal**) and use the following command inside the terminal:
 
     $ passwd
     Changing password for admin.
@@ -45,15 +45,17 @@ JupyterHub Docker uses PAMAuthenticator, this allows us to use the Linux account
 
 With **admin** account you can create other users.
 
-Go to **Control Panel** button, **Admin** menu option, **Add Users** button. Inside Add Users enter the username. Yo can create a list of user separated by lines
+Go to **Hub Control Panel** (File -> Hub Control Panel), **Admin** menu option, **Add Users** button. Inside Add Users enter the username. Yo can create a list of user separated by lines
 
 New users will be created with a default password **remember.change.it**. Each user must change their own password using the **Terminal** option (they have to go to New -> Terminal) and execute the following command:
 
     $ passwd
-    Changing password for admin.
+    Changing password for <username>.
     (current) UNIX password:
     Enter new UNIX password:
     Retype new UNIX password:
     passwd: password updated successfully
     $
+
+**<username>** will be your username. You must write your current password (by default: **remember.change.it**).
 
