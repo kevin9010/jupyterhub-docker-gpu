@@ -47,7 +47,7 @@ With **admin** account you can create other users.
 
 Go to **Hub Control Panel** (File -> Hub Control Panel), **Admin** menu option, **Add Users** button. Inside Add Users enter the username. Yo can create a list of user separated by lines
 
-New users will be created with a default password **remember.change.it**. Each user must change their own password using the **Terminal** option (they have to go to New -> Terminal) and execute the following command:
+New users will be created with a default password **remember.change.it**. Each user must change their own password using the **Terminal** option (they have to go to **File -> New -> Terminal**) and execute the following command:
 
     $ passwd
     Changing password for <username>.
@@ -57,5 +57,6 @@ New users will be created with a default password **remember.change.it**. Each u
     passwd: password updated successfully
     $
 
-**<username>** will be your username. You must write your current password (by default: **remember.change.it**).
+
+**username** will be your username. You must write your current password (by default: **remember.change.it**).
 
