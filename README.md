@@ -10,6 +10,7 @@ JupyterHub Docker will provide us an environment with JupyterLab for every user.
      $ docker run -d --name <your-container-name> -p 8000:8000 rancavil/jupyterhub-docker
 
 Or
+
      $ git clone https://gitlab.com/rancavil/jupyterhub-docker.git
      $ cd jupyterhub-docker/
      $ docker build -t jupyter-docker .
