@@ -22,7 +22,7 @@ In your browser go to:
 
 ## Access to JupyterHub admin
 
-By default, an admin user is created with with default password **change.it!**, you can access using the following credentials to enter as administrator.
+By default, an admin user is created with the default password **change.it!**, you can access using the following credentials to enter as administrator.
 
      username: admin
      password: change.it!
@@ -45,7 +45,7 @@ JupyterHub Docker uses PAMAuthenticator, this allows us to use the Linux account
 
 With **admin** account you can create other users.
 
-Go to **Hub Control Panel** (File -> Hub Control Panel), **Admin** menu option, **Add Users** button. Inside Add Users enter the username. Yo can create a list of user separated by lines
+Go to **Hub Control Panel** (File -> Hub Control Panel), **Admin** menu option, **Add Users** button. Inside Add Users enter the username. You can create a list of user separated by lines
 
 New users will be created with a default password **remember.change.it**. Each user must change their own password using the **Terminal** option (they have to go to **File -> New -> Terminal**) and execute the following command:
 
