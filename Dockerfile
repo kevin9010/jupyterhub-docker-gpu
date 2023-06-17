@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 
 WORKDIR /app/analysis
 
@@ -10,7 +10,7 @@ RUN apt-get install npm nodejs -y && \
     pip3 install pandas scipy matplotlib && \
     pip3 install "dask[distributed,dataframe]" && \   
     pip3 install dask_labextension && \
-    useradd admin && echo admin:change.it! | chpasswd && mkdir /home/admin && chown admin:admin /home/admin
+    useradd admin && echo admin:12345678! | chpasswd && mkdir /home/admin && chown admin:admin /home/admin
 
 ADD jupyterhub_config.py /app/analysis/jupyterhub_config.py
 ADD create-user.py /app/analysis/create-user.py
