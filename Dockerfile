@@ -2,7 +2,14 @@ FROM ubuntu:20.04
 
 WORKDIR /app/analysis
 
+ENV TZ=Asia/bangkok \
+    DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && \
+    apt-get install tzdata
+
 RUN apt-get upgrade -y && apt-get update -y && apt-get install -y python3-pip && pip3 install --upgrade pip
+
 RUN apt-get install npm nodejs -y && \
     npm install -g configurable-http-proxy && \
     pip3 install jupyterhub && \
